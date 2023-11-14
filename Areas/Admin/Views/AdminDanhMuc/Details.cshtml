@@ -1,0 +1,42 @@
+﻿@model WebBanDienThoai.Models.DanhMucSp
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Chi Tiết Danh Mục</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tên Danh Mục
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenDm)
+        </dd>
+        <dt class = "col-sm-2">
+            Ảnh:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnhDm)
+        </dd>
+        <dt class = "col-sm-2">
+           Mô Tả:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MoTaDm)
+        </dd>
+        <dt class = "col-sm-2">
+            Trạng Thái:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MaDm" class="btn btn-primary">Sửa</a> <br />
+    <a asp-action="Index">Quay lại</a>
+</div>

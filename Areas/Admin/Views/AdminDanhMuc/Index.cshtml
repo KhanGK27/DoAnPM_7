@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebBanDienThoai.Models.DanhMucSp>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+  <p>
+<a asp-action="Create" class="btn btn-primary" style="background:linear-gradient(195deg,#66bb6a,#43a047);">Thêm Danh Mục</a>
+</p>
+<div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Danh Sách Danh Mục</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên Danh Mục</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mô Tả Danh Mục</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng Thái</th>
+                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ảnh Danh Mục (Nếu Có)</th>
+                      <th class="text-secondary opacity-7"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (var item in Model)
+                     {
+                         <tr>
+                      <td>
+                       <p class="text-xs font-weight-bold mb-0">@item.TenDm</p>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">@item.MoTaDm</p>
+                        
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-xs font-weight-bold mb-0"> @item.TrangThai</span>
+                      </td>
+                       <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold"><img src="@item.AnhDm" style="width:80px;"/></span>
+                      </td>
+                      <td class="align-middle">
+                        <a asp-action="Edit" asp-route-id="@item.MaDm" class="btn btn-primary">Edit</a> 
+                        <a asp-action="Details" asp-route-id="@item.MaDm" class="btn btn-primary">Details</a> 
+                        <a asp-action="Delete" asp-route-id="@item.MaDm" class="btn btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                     }
+                    
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,236 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.EntityFrameworkCore
+@model IEnumerable<WebBanDienThoai.Models.SanPham> 
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var spBanChay =  Model.Where(x => x.BestSeller == true);
+}
+
+      <!-- shop section -->
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          BÁN CHẠY NHẤT
+        </h2>
+      </div>
+      <div class="row">
+          @foreach (var item in spBanChay)
+         {
+             <div class="col-sm-6 col-xl-3">
+          <div class="box">
+            <a asp-action="Details" asp-controller="SanPham" asp-route-id="@item.MaSp">
+              <div class="img-box">
+                <img src="@item.AnhSp" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  @item.TenSp
+                </h6>
+                <h6>
+                 Giá:
+                  <span>
+                    @item.GiaSp.ToString("#,00") VNĐ
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  Mới
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+         }
+        
+
+      </div>
+      <div class="btn-box">
+        <a asp-action="Details" asp-controller="SanPham">
+         Xem Thêm
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end shop section -->
+
+  <!-- about section -->
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6 col-lg-5 ">
+          <div class="img-box">
+            <img src="~/asset_client/images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-7">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Apple Watch SE 40mm
+              </h2>
+            </div>
+            <p>
+              Apple Watch SE 40mm viền nhôm dây silicone hồng có thiết kế bo tròn 4 góc giúp thao tác vuốt chạm thoải mái hơn. 
+              Mặt kính cường lực Ion-X strengthened glass với kích thước 1.57 inch, hiển thị rõ ràng. Khung viền nhôm chắc chắn 
+              cùng dây đeo silicone có độ đàn hồi cao, êm ái, tạo cảm giác thoải mái khi đeo.
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+  <!-- feature section -->
+  <section class="feature_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          CÁC TÍNH NĂNG CỦA SMARTWATCH
+        </h2>
+        <p>
+          Mang ngôn ngữ thiết kế thời thượng cùng việc trang bị nhiều tính năng hữu ích.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="~/asset_client/images/f1.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Theo Dõi Hoạt Động
+              </h5>
+              <p>
+                Theo dõi nhịp tim, tốc độ mạch máu.
+              </p>
+              <a href="">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="~/asset_client/images/f2.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Hiển Thị Thông Báo
+              </h5>
+              <p>
+                Thông báo cuộc gọi, tin nhắn đến nhanh chóng.
+              </p>
+              <a href="">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="~/asset_client/images/f3.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Messages - Video Call
+              </h5>
+              <p>
+                Tính năng gọi điện Video vô cùng tiện lợi.
+              </p>
+              <a href="">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="~/asset_client/images/f4.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Bluetooth
+              </h5>
+              <p>
+                Kết nối bluetooth 5.0 nhanh chớp nhoáng.
+              </p>
+              <a href="">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end feature section -->
+
+  <!-- contact section -->
+  <section class="contact_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Liên Hệ Với Chúng Tôi
+              </h2>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Full Name " />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone number" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="d-flex ">
+                <button>
+                  Gửi
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="~/asset_client/images/contact-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->

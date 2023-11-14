@@ -1,0 +1,55 @@
+﻿@model WebBanDienThoai.Models.Account
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Chi Tiết</h1>
+
+<div>
+    <h4>Tài Khoản</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tài Khoản
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+        <dt class = "col-sm-2">
+            Mật Khẩu:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+        <dt class = "col-sm-2">
+            Điện Thoại
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            Họ và Tên
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+           Ngày Tạo:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+</div>
+<div style="margin-bottom:30px;">
+    <a asp-action="Edit" asp-route-id="@Model.AccountId" class="btn btn-primary">Edit</a> <br />
+    <a asp-action="Index">Về trang danh sách</a>
+</div>

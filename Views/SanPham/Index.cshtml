@@ -1,0 +1,136 @@
+﻿@model IEnumerable<WebBanDienThoai.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ProductLayout.cshtml";
+    var dienThoai =  Model.Where(x => x.MaDm == 1);
+    var tabLet =  Model.Where(x => x.MaDm == 2);
+    var dongHo =  Model.Where(x => x.MaDm == 3);
+    var spBanChay =  Model.Where(x => x.BestSeller == true);
+}
+
+  <!-- shop section -->
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center" >
+        <h2>
+          Điện Thoại
+        </h2>
+      </div>
+      <div class="row">
+
+         @foreach (var item in dienThoai)
+        {
+            <div class="col-sm-6 col-xl-3">
+          <div class="box">
+            <a asp-action="Details" asp-route-id="@item.MaSp">
+              <div class="img-box">
+                <img src="@item.AnhSp" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  @item.TenSp
+                </h6>
+                <h6>
+                 Giá:
+                  <span>
+                    @item.GiaSp.ToString("#,00") VNĐ
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  Mới
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        }
+        
+      </div>
+
+       <div class="heading_container heading_center" style="margin-top:60px;">
+        <h2>
+          Máy Tính Bảng
+        </h2>
+      </div>
+      <div class="row">
+
+         @foreach (var item in tabLet)
+        {
+           <div class="col-sm-6 col-xl-3">
+          <div class="box">
+            <a asp-action="Details" asp-route-id="@item.MaSp">
+              <div class="img-box">
+                <img src="@item.AnhSp" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  @item.TenSp
+                </h6>
+                <h6>
+                 Giá:
+                  <span>
+                    @item.GiaSp.ToString("#,00") VNĐ
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  Mới
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        }
+        
+      </div>
+
+       <div class="heading_container heading_center" style="margin-top:60px;">
+        <h2>
+          Đồng Hồ
+        </h2>
+      </div>
+      <div class="row">
+
+         @foreach (var item in dongHo)
+        {
+           <div class="col-sm-6 col-xl-3">
+          <div class="box">
+            <a asp-action="Details" asp-route-id="@item.MaSp">
+              <div class="img-box">
+                <img src="@item.AnhSp" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  @item.TenSp
+                </h6>
+                <h6>
+                 Giá:
+                  <span>
+                    @item.GiaSp.ToString("#,00") VNĐ
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  Mới
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        }
+        
+      </div>
+
+@*      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
+      </div>*@
+    </div>
+  </section>
+  <!-- end shop section -->
